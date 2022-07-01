@@ -19,9 +19,6 @@
     <Filter Include="소스 파일\02.Function">
       <UniqueIdentifier>{fc4f3431-f871-40a4-87b8-159bb68df6e7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\03.Define">
-      <UniqueIdentifier>{b4483070-6508-4770-a47d-165e39f4104d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\04.Cobject">
       <UniqueIdentifier>{887a4a80-3899-4aa9-a40b-3294d533c58b}</UniqueIdentifier>
     </Filter>
@@ -30,6 +27,12 @@
     </Filter>
     <Filter Include="소스 파일\01.Struct">
       <UniqueIdentifier>{f6e0d6bc-ea25-4be3-9a2a-f7d68478718d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06.Component">
+      <UniqueIdentifier>{a3305186-7d14-41c1-b5ea-15c5b67e8988}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03.Macro">
+      <UniqueIdentifier>{b4483070-6508-4770-a47d-165e39f4104d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,8 +51,8 @@
     <ClInclude Include="MyVector.h">
       <Filter>소스 파일\01.Struct</Filter>
     </ClInclude>
-    <ClInclude Include="Define.h">
-      <Filter>소스 파일\03.Define</Filter>
+    <ClInclude Include="Macro.h">
+      <Filter>소스 파일\03.Macro</Filter>
     </ClInclude>
     <ClInclude Include="CObjectManager.h">
       <Filter>소스 파일\05.Manager</Filter>
@@ -59,6 +62,15 @@
     </ClInclude>
     <ClInclude Include="CObject.h">
       <Filter>소스 파일\04.Cobject</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>소스 파일\06.Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>소스 파일\06.Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Collidier2D.h">
+      <Filter>소스 파일\06.Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

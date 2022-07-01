@@ -3,12 +3,13 @@
 class CObject
 {
 
-public :
+public:
 	CObject();
 	~CObject();
 
-	void virtual Update();
-	void virtual LateUpdate();
-	void virtual Render();
-
+public:
+	virtual void Init();
+	virtual void Update();
+	virtual void LateUpdate();
+		    
 };

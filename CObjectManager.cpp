@@ -13,3 +13,19 @@ void CObjectManager::Destroy_Instance()
 {
 	delete m_ObjMgr;
 }
+
+void CObjectManager::Init()
+{
+}
+
+void CObjectManager::Update()
+{
+}
+
+void CObjectManager::LateUpdate()
+{
+}
+
+void CObjectManager::Render()
+{
+}
