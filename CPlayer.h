@@ -1,6 +1,7 @@
 #pragma once
 #include "CObject.h"
-class CPlayer
+
+class CPlayer : public CObject
 {
 
 public :
@@ -8,8 +9,8 @@ public :
 	~CPlayer();
 
 public :
-	void Init();
-	void Update();
-	void LateUpdate();
-	void Render();
+	virtual void Init() override;
+	virtual void Update() override;
+	virtual void LateUpdate() override;
+	virtual void Render() override;
 };

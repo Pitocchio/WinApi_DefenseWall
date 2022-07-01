@@ -34,6 +34,24 @@
     <Filter Include="소스 파일\03.Macro">
       <UniqueIdentifier>{b4483070-6508-4770-a47d-165e39f4104d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\06.Component\Transform">
+      <UniqueIdentifier>{93d20c46-9090-4a0f-8f2e-acfed555e311}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06.Component\Collider2D">
+      <UniqueIdentifier>{346580de-d228-4a98-ab7f-6ee19ada9e02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\05.Manager\Collision">
+      <UniqueIdentifier>{486346a9-d2a5-459a-bfd1-8869221901aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\05.Manager\CObject">
+      <UniqueIdentifier>{f9611f9b-299d-40d2-b1ce-0a4d0962841c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06.Component\Collider2D\BoxCollider2D">
+      <UniqueIdentifier>{de9e2e05-6685-4710-9d79-9c84f3eb496d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\06.Component\Collider2D\CircleCollider2D">
+      <UniqueIdentifier>{c3993a24-b390-4d25-9f78-2dbb1f6c64f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -54,9 +72,6 @@
     <ClInclude Include="Macro.h">
       <Filter>소스 파일\03.Macro</Filter>
     </ClInclude>
-    <ClInclude Include="CObjectManager.h">
-      <Filter>소스 파일\05.Manager</Filter>
-    </ClInclude>
     <ClInclude Include="CPlayer.h">
       <Filter>소스 파일\04.Cobject</Filter>
     </ClInclude>
@@ -66,11 +81,23 @@
     <ClInclude Include="Component.h">
       <Filter>소스 파일\06.Component</Filter>
     </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>소스 파일\06.Component</Filter>
+    <ClInclude Include="Collider2D.h">
+      <Filter>소스 파일\06.Component\Collider2D</Filter>
     </ClInclude>
-    <ClInclude Include="Collidier2D.h">
-      <Filter>소스 파일\06.Component</Filter>
+    <ClInclude Include="Transform.h">
+      <Filter>소스 파일\06.Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="CObjectManager.h">
+      <Filter>소스 파일\05.Manager\CObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>소스 파일\05.Manager\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider2D.h">
+      <Filter>소스 파일\06.Component\Collider2D\BoxCollider2D</Filter>
+    </ClInclude>
+    <ClInclude Include="CircleCollider2D.h">
+      <Filter>소스 파일\06.Component\Collider2D\CircleCollider2D</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -93,8 +120,26 @@
     <ClCompile Include="CObject.cpp">
       <Filter>소스 파일\04.Cobject</Filter>
     </ClCompile>
+    <ClCompile Include="Cplayer.cpp">
+      <Filter>소스 파일\04.Cobject</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider2D.cpp">
+      <Filter>소스 파일\06.Component\Collider2D</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>소스 파일\06.Component\Transform</Filter>
+    </ClCompile>
     <ClCompile Include="CObjectManager.cpp">
-      <Filter>소스 파일\05.Manager</Filter>
+      <Filter>소스 파일\05.Manager\CObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>소스 파일\05.Manager\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollider2D.cpp">
+      <Filter>소스 파일\06.Component\Collider2D\BoxCollider2D</Filter>
+    </ClCompile>
+    <ClCompile Include="CircleCollider2D.cpp">
+      <Filter>소스 파일\06.Component\Collider2D\CircleCollider2D</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

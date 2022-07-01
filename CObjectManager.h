@@ -1,25 +1,38 @@
 #pragma once
 #include "Macro.h"
+#include "CObject.h"
+#include <map>
+#include <list>
 
 class CObjectManager
 {
 
-public :
-	enum class OBJECT_TYPE {CPLAYER, CBULLET, CWALL, CENEMY};
+public : // Enum
+	enum class OBJECT_TYPE {CPLAYER, CBULLET, CWALL, CENEMY, OBJTYPEEND};
+
+private: // Typedef
+	typedef	std::list<CObject*> COBJ_LIST;
+	typedef std::map <OBJECT_TYPE, COBJ_LIST> COBJ_MAP;
 
 private:
-	CObjectManager() {};
-	~CObjectManager() {};
-public:
+	CObjectManager();
+	~CObjectManager();
+	
+public: // SingleTone
 	static CObjectManager* Get_Instance();
 	static void Destroy_Instance();
 
-public:
+public: // Life Cycle
 	void Init();
-	void Update();
-	void LateUpdate();
+	void Update(); // Collision check
+	void LateUpdate(); // Collision implement
 	void Render();
 
-private:
+public: // Method
+	void Add_CObject(OBJECT_TYPE, CObject*);
+	COBJ_MAP Get_ObjectMap() const { return m_ObjMap; }
+
+private: // Variables
 	static CObjectManager* m_ObjMgr;
+	COBJ_MAP m_ObjMap;
 };

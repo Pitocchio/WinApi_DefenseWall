@@ -2,8 +2,11 @@
 
 #define PI 3.14159265358979
 
-#define RADIANTODEGREE(r) r * (PI / 180.0)
-#define DEGREETORADIAN(d) d * (PI / 180.0)
+#define WINDOW_WIDTH 1280
+#define WINDOW_HEIGHT 960
+
+#define RADIANTODEGREE(radian) radian * (PI / 180.0)
+#define DEGREETORADIAN(degree) degree * (PI / 180.0)
 
 enum class RETURNTYPE
 {
@@ -11,3 +14,7 @@ enum class RETURNTYPE
 	OBJ_NOEVENT,
 	OBJ_DEAD
 };
+
+
+
+// ≥Œ√º≈©!

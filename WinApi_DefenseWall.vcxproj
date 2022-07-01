@@ -139,8 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BoxCollider2D.h" />
+    <ClInclude Include="CollisionManager.h" />
+    <ClInclude Include="CircleCollider2D.h" />
     <ClInclude Include="CObject.h" />
-    <ClInclude Include="Collidier2D.h" />
+    <ClInclude Include="Collider2D.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="CPlayer.h" />
     <ClInclude Include="Macro.h" />
@@ -153,8 +156,14 @@
     <ClInclude Include="MyVector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BoxCollider2D.cpp" />
+    <ClCompile Include="CircleCollider2D.cpp" />
     <ClCompile Include="CObject.cpp" />
     <ClCompile Include="CObjectManager.cpp" />
+    <ClCompile Include="Collider2D.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
+    <ClCompile Include="Cplayer.cpp" />
+    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="WinApi_DefenseWall.cpp" />
   </ItemGroup>
   <ItemGroup>
