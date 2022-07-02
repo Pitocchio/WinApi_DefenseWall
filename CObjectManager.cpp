@@ -1,4 +1,5 @@
 #include "CObjectManager.h"
+#include "Typedef.h"
 
 CObjectManager* CObjectManager::m_ObjMgr = nullptr; 
 // Have to initialize static variables! (프로그램 생성과 동시에 초기화를 해주는데 자체가 없다면 오류)
@@ -70,11 +71,11 @@ void CObjectManager::Add_CObject(OBJECT_TYPE type, CObject* temp)
 
 	COBJ_MAP::iterator iter = m_ObjMap.find(type);
 
-	if (iter == m_ObgMap.end())
+	if (iter == m_ObjMap.end())
 	{
 		COBJ_LIST listtemp;
 		listtemp.push_back(temp);
-		m_ObgMap.insert({ type, listtemp });
+		m_ObjMap.insert({ type, listtemp });
 		return;
 	}
 

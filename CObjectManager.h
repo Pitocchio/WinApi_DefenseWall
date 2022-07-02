@@ -10,9 +10,9 @@ class CObjectManager
 public : // Enum
 	enum class OBJECT_TYPE {CPLAYER, CBULLET, CWALL, CENEMY, OBJTYPEEND};
 
-private: // Typedef
-	typedef	std::list<CObject*> COBJ_LIST;
-	typedef std::map <OBJECT_TYPE, COBJ_LIST> COBJ_MAP;
+//private: // Typedef
+//	typedef	std::list<CObject*> COBJ_LIST;
+//	typedef std::map <OBJECT_TYPE, COBJ_LIST> COBJ_MAP;
 
 private:
 	CObjectManager();

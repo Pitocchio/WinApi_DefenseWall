@@ -52,6 +52,9 @@
     <Filter Include="소스 파일\06.Component\Collider2D\CircleCollider2D">
       <UniqueIdentifier>{c3993a24-b390-4d25-9f78-2dbb1f6c64f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\06.Component\Collider2D\AABBColider2D">
+      <UniqueIdentifier>{f0a1a61d-b134-46fa-ad72-de1e0a9d94a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -99,6 +102,12 @@
     <ClInclude Include="CircleCollider2D.h">
       <Filter>소스 파일\06.Component\Collider2D\CircleCollider2D</Filter>
     </ClInclude>
+    <ClInclude Include="AABBColider2D.h">
+      <Filter>소스 파일\06.Component\Collider2D\AABBColider2D</Filter>
+    </ClInclude>
+    <ClInclude Include="Typedef.h">
+      <Filter>소스 파일\03.Macro</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WinApi_DefenseWall.rc">
@@ -140,6 +149,9 @@
     </ClCompile>
     <ClCompile Include="CircleCollider2D.cpp">
       <Filter>소스 파일\06.Component\Collider2D\CircleCollider2D</Filter>
+    </ClCompile>
+    <ClCompile Include="AABBColider2D.cpp">
+      <Filter>소스 파일\06.Component\Collider2D\AABBColider2D</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
