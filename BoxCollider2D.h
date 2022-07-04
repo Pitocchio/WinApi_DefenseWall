@@ -7,7 +7,8 @@ public:
 	BoxCollider2D();
 	~BoxCollider2D();
 
-public:
+private:
+
 
 
 };

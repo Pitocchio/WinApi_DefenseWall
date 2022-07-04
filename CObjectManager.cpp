@@ -1,17 +1,15 @@
+#include "stdfx.h"
 #include "CObjectManager.h"
-#include "Typedef.h"
 
 CObjectManager* CObjectManager::m_ObjMgr = nullptr; 
 // Have to initialize static variables! (프로그램 생성과 동시에 초기화를 해주는데 자체가 없다면 오류)
 
 CObjectManager::CObjectManager()
 {
-
 }
 
 CObjectManager::~CObjectManager()
 {
-
 }
 
 CObjectManager* CObjectManager::Get_Instance()
@@ -28,7 +26,15 @@ void CObjectManager::Destroy_Instance()
 
 void CObjectManager::Init()
 {
-	
+	/*
+
+	플레이어와 브릭은 미리 이 타이밍에 생성
+
+	*/
+	Vector2 tempVec = { CPLAYER_START_POS_X, CPLAYER_START_POS_Y };
+	CPlayer* tempCPlayer = new CPlayer(tempVec);
+	Add_CObject(OBJECT_TYPE::CPLAYER, tempCPlayer);
+
 }
 
 void CObjectManager::Update()
@@ -53,13 +59,13 @@ void CObjectManager::LateUpdate()
 	}
 }
 
-void CObjectManager::Render()
+void CObjectManager::Render(HDC hdc)
 {
 	for (COBJ_MAP::iterator mapiter = m_ObjMap.begin(); mapiter != m_ObjMap.end(); ++mapiter)
 	{
 		for (COBJ_LIST::iterator iter = mapiter->second.begin(); iter != mapiter->second.end(); ++iter)
 		{
-			(*iter)->Render();
+			(*iter)->Render(hdc);
 		}
 	}
 }

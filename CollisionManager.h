@@ -1,11 +1,5 @@
 #pragma once
-#include "Macro.h"
-#include "CObjectManager.h"
-#include <string>
-#include <map>
-#include "Typedef.h"
-#include <algorithm>
-#include <string>
+
 
 using namespace std;
 

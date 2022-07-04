@@ -1,8 +1,7 @@
 #pragma once
-#include "Macro.h"
-#include "CObject.h"
-#include <map>
-#include <list>
+
+//#include "Typedef.h"
+class CObject;
 
 class CObjectManager
 {
@@ -17,6 +16,7 @@ public : // Enum
 private:
 	CObjectManager();
 	~CObjectManager();
+
 	
 public: // SingleTone
 	static CObjectManager* Get_Instance();
@@ -26,7 +26,7 @@ public: // Life Cycle
 	void Init();
 	void Update(); // Collision check
 	void LateUpdate(); // Collision implement
-	void Render();
+	void Render(HDC hdc);
 
 public: // Method
 	void Add_CObject(OBJECT_TYPE, CObject*);

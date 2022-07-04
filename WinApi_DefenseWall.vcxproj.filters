@@ -108,6 +108,9 @@
     <ClInclude Include="Typedef.h">
       <Filter>소스 파일\03.Macro</Filter>
     </ClInclude>
+    <ClInclude Include="stdfx.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WinApi_DefenseWall.rc">

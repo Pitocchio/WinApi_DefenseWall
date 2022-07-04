@@ -13,3 +13,10 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
+
+#include <string>
+#include <cmath>
+#include <algorithm>	
+#include <ctime>
+#include <list>
+#include <map>

@@ -1,4 +1,5 @@
-#include "CollisionManager.h"
+#include "stdfx.h"
+#include "CObjectManager.h"
 
 CollisionMnager* CollisionMnager::m_ColMgr = nullptr;
 

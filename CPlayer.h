@@ -4,13 +4,21 @@
 class CPlayer : public CObject
 {
 
-public :
+public:
 	CPlayer();
 	~CPlayer();
+	CPlayer(Vector2 pos);
 
-public :
+
+public:
 	virtual void Init() override;
 	virtual void Update() override;
 	virtual void LateUpdate() override;
-	virtual void Render() override;
+	virtual void Render(HDC hdc) override;
+
+public: // Get
+	float Get_Radius();
+
+private: // Variables
+	float m_Radius;
 };
