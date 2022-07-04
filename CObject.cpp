@@ -1,5 +1,6 @@
 #include "stdfx.h"
-
+#include "CObject.h"
+#include "Transform.h"
 
 CObject::CObject()
 {
@@ -13,12 +14,10 @@ CObject::~CObject()
 
 CObject::CObject(Vector2 pos)
 {
-
 	Transform* tempTransform = new Transform(pos); 
 
 	Add_Component(Component::COMPONENT_TYPE::TRANSFORM, tempTransform);
-
-
+	// 생성과 동시에 컴포넌트-트랜스폼 추가
 }
 
 void CObject::Add_Component(Component::COMPONENT_TYPE type, Component*temp)

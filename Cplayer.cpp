@@ -1,8 +1,6 @@
 #include "stdfx.h"
 #include "CPlayer.h"
 
-
-
 CPlayer::CPlayer()
 {
 
@@ -12,9 +10,10 @@ CPlayer::~CPlayer()
 {
 }
 
-CPlayer::CPlayer(Vector2 pos)
+CPlayer::CPlayer(Vector2 pos, float radius)
+	:CObject(pos)
 {
-	
+	m_Radius = radius;
 }
 
 void CPlayer::Init()
@@ -31,14 +30,11 @@ void CPlayer::LateUpdate()
 
 void CPlayer::Render(HDC hdc)
 {
-	//Ellipse(hdc, Get_Pos().x - m_Radius, Get_Pos().y - m_Radius, Get_Pos().x + m_Radius, Get_Pos().y + m_Radius);
+	float tempRadius = Get_Radius();
+	Vector2 tempPos = Get_Transform(); // 여기에서 받아오지를 못함
 
-	float tempRadius = this->Get_Radius();
-	Vector2 tempPos = this->Get_Transform();
-
-	Ellipse(hdc, tempPos.x - tempRadius, tempPos.y - tempRadius,
-		tempPos.x + tempRadius, tempPos.y - tempRadius);
-
+	Ellipse(hdc, (int)(tempPos.x - tempRadius), (int)(tempPos.y - tempRadius),
+		(int)(tempPos.x + tempRadius), (int)(tempPos.y - tempRadius));
 }
 
 float CPlayer::Get_Radius()

@@ -1,19 +1,19 @@
 #pragma once
 #include "Component.h"
 
+
 class CObject
 {
 
 public: // Enum
 	enum class OBJECT_TYPE { CPLAYER, CBULLET, CWALL, CENEMY, OBJTYPEEND };
 
-private: // Typedef
+protected: // Typedef
 	typedef map<Component::COMPONENT_TYPE, Component*> COMPONENT_MAP;
 
 public:
 	CObject();
 	~CObject();
-
 	CObject(Vector2 pos);
 
 public: // Life Cycle
@@ -25,12 +25,18 @@ public: // Life Cycle
 public: // Method
 	void Add_Component(Component::COMPONENT_TYPE type, Component* temp); 
 	COMPONENT_MAP Get_ComponentMap() const { return m_CpnMap; }
-	Vector2 Get_Transform() const { return m_CpnMap.begin()->second->Get_TransformComponent(); }
+	Vector2 Get_Transform() const { return dynamic_cast<Transform*>(m_CpnMap.begin()->second)->Get_VecPos(); }
+	/*
+	
+	m_CpnMap.begin() = 트랜스폼 키
 
+	m_CpnMap.begin()->second = 벡터2 밸류
+	
+	*/
 protected: // Variables
 	COMPONENT_MAP m_CpnMap; // 객체 각각이 갖고 있는 컴포넌트이다.
 
-private: // Variables
+protected: // Variables
 	float m_Angle;
 	Vector2 m_UnitVec;
 	// 기본 포지션은 Transform Component가 들고 있음

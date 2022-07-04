@@ -24,7 +24,7 @@ void CollisionMnager::Destroy_Instance()
 
 }
 
-void CollisionMnager::Check_Collision(COLLISION_TYPE coltype, CObjectManager::OBJECT_TYPE objtype1, CObjectManager::OBJECT_TYPE objtype2)
+void CollisionMnager::Check_Collision(COLLISION_TYPE coltype, OBJECT_TYPE objtype1, OBJECT_TYPE objtype2)
 {
 	// 매개변수 : obj1과 obj2는 같은 콜라이더를 갖고 있어야 하고, coltype이 콜라이더가 된다
 

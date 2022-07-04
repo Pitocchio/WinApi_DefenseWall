@@ -7,7 +7,7 @@ class CPlayer : public CObject
 public:
 	CPlayer();
 	~CPlayer();
-	CPlayer(Vector2 pos);
+	CPlayer(Vector2 pos, float radius);
 
 
 public:
@@ -20,5 +20,5 @@ public: // Get
 	float Get_Radius();
 
 private: // Variables
-	float m_Radius;
+	float m_Radius = 0;
 };

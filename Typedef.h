@@ -1,9 +1,8 @@
 #pragma once
 
-#include <list>
-#include <map>
-#include "CObjectManager.h"
-#include "CObject.h"
+class CObject;
+
+enum class OBJECT_TYPE { CPLAYER, CBULLET, CWALL, CENEMY, OBJTYPEEND };
 
 typedef	std::list<CObject*> COBJ_LIST;
-typedef std::map <CObjectManager::OBJECT_TYPE, COBJ_LIST> COBJ_MAP;
+typedef std::map<OBJECT_TYPE, COBJ_LIST> COBJ_MAP;

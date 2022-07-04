@@ -1,8 +1,6 @@
 #pragma once
 
 
-using namespace std;
-
 class CollisionMnager
 {
 public : // Enum
@@ -17,7 +15,7 @@ public: // SingleTone
 	static void Destroy_Instance();
 
 public: // Method
-	void Check_Collision(COLLISION_TYPE coltype, CObjectManager::OBJECT_TYPE objtype1, CObjectManager::OBJECT_TYPE objtype2);
+	void Check_Collision(COLLISION_TYPE coltype, OBJECT_TYPE objtype1, OBJECT_TYPE objtype2);
 
 private: // Variables
 	static CollisionMnager* m_ColMgr;

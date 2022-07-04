@@ -32,9 +32,8 @@ void CObjectManager::Init()
 
 	*/
 	Vector2 tempVec = { CPLAYER_START_POS_X, CPLAYER_START_POS_Y };
-	CPlayer* tempCPlayer = new CPlayer(tempVec);
+	CPlayer* tempCPlayer = new CPlayer(tempVec, CPLAYER_RADIUS);
 	Add_CObject(OBJECT_TYPE::CPLAYER, tempCPlayer);
-
 }
 
 void CObjectManager::Update()

@@ -1,23 +1,18 @@
 #pragma once
 
-//#include "Typedef.h"
 class CObject;
+/*
+#include 관련
+if Manager라면 매니지 하는 대상의 헤더파일을 클래스 전방선언
+CObjectManager -> CObject 전방선언
+*/
 
 class CObjectManager
 {
-
-public : // Enum
-	enum class OBJECT_TYPE {CPLAYER, CBULLET, CWALL, CENEMY, OBJTYPEEND};
-
-//private: // Typedef
-//	typedef	std::list<CObject*> COBJ_LIST;
-//	typedef std::map <OBJECT_TYPE, COBJ_LIST> COBJ_MAP;
-
 private:
 	CObjectManager();
 	~CObjectManager();
 
-	
 public: // SingleTone
 	static CObjectManager* Get_Instance();
 	static void Destroy_Instance();

@@ -8,6 +8,7 @@
 #define CPLAYER_START_POS_X (WINDOW_WIDTH * 0.5f)
 #define CPLAYER_START_POS_Y WINDOW_HEIGHT
 
+#define CPLAYER_RADIUS 50
 
 #define RADIANTODEGREE(radian) radian * (PI / 180.0)
 #define DEGREETORADIAN(degree) degree * (PI / 180.0)
