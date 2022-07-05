@@ -1,3 +1,4 @@
+/*
 #pragma once
 #include "CkeyManager.h"
 
@@ -10,3 +11,4 @@ typedef struct MyKey
 	// 리스트 인덱스 = 해당 키
 
 }KEY;
+*/

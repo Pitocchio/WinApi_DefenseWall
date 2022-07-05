@@ -1,3 +1,4 @@
+/*
 #include "stdfx.h"
 #include "CkeyManager.h"
 
@@ -35,4 +36,4 @@ void CKeyManager::LateUpdate()
 {
 }
 
-
+*/

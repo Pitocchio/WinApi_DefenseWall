@@ -55,7 +55,7 @@
     <Filter Include="소스 파일\06.Component\Transform2D">
       <UniqueIdentifier>{93d20c46-9090-4a0f-8f2e-acfed555e311}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\05.Manager\CKeymanager">
+    <Filter Include="소스 파일\05.Manager\CKey">
       <UniqueIdentifier>{9bd2e077-cec6-4e8a-ac88-867f0e3ad6a4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -115,10 +115,13 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CkeyManager.h">
-      <Filter>소스 파일\05.Manager\CKeymanager</Filter>
+      <Filter>소스 파일\05.Manager\CKey</Filter>
     </ClInclude>
     <ClInclude Include="MyKey.h">
       <Filter>소스 파일\01.Struct</Filter>
+    </ClInclude>
+    <ClInclude Include="CWall.h">
+      <Filter>소스 파일\04.Cobject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -169,7 +172,10 @@
       <Filter>소스 파일\06.Component</Filter>
     </ClCompile>
     <ClCompile Include="CkeyManager.cpp">
-      <Filter>소스 파일\05.Manager\CKeymanager</Filter>
+      <Filter>소스 파일\05.Manager\CKey</Filter>
+    </ClCompile>
+    <ClCompile Include="CWall.cpp">
+      <Filter>소스 파일\04.Cobject</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

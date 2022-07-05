@@ -3,7 +3,8 @@
 
 #define MAX_LOADSTRING 100
 
-HINSTANCE hInst;                                
+HINSTANCE hInst;                         
+HWND g_hWnd;
 WCHAR szTitle[MAX_LOADSTRING];                  
 WCHAR szWindowClass[MAX_LOADSTRING];            
 
@@ -11,6 +12,17 @@ ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
+
+/* GDI 관련 */
+#include <objidl.h>
+#include <gdiplus.h>
+#pragma comment(lib,"Gdiplus.lib")
+using namespace Gdiplus;
+ULONG_PTR g_GdiToken;
+void Gdi_Init();
+void Gdi_Draw(HDC hdc);
+void Gdi_End();
+
 
 /* Console 출력 */
 #ifdef UNICODE
@@ -53,17 +65,42 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, /* 프로세스의 메모리 시
 
 
     MSG msg;
-    /* 발생한 메시지(이벤트)가 있다면 가져온다, 즉 발생한 메시지가 없다면 무한 대기 */    
-    while (GetMessage(&msg, nullptr, 0, 0))
+    ///* 발생한 메시지(이벤트)가 있다면 가져온다, 즉 발생한 메시지가 없다면 무한 대기 */    
+    //while (GetMessage(&msg, nullptr, 0, 0))
+    //{
+    //    if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) /* 메시지가 발생한 윈도우(창), 무시. 메시지 구조체*/
+    //    {
+    //        TranslateMessage(&msg);
+    //        DispatchMessage(&msg);
+    //    }
+    //}
+
+    //return (int) msg.wParam;
+
+    Gdi_Init();
+    while (true) // 메시지 발생 유무에 관계없이 돌리겠다
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) /* 메시지가 발생한 윈도우(창), 무시. 메시지 구조체*/
+        if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) // 메시지가 발생하지 않았다면
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            if (msg.message == WM_QUIT)
+            {
+                break;
+            }
+            else
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+        }
+        else
+        {
+            /* 더블 버퍼링 구현시 false로 세팅 */
+            InvalidateRect(g_hWnd, nullptr, false);
         }
     }
+    Gdi_End();
 
-    return (int) msg.wParam;
+    return (int)msg.wParam;
 }
 
 ATOM MyRegisterClass(HINSTANCE hInstance)
@@ -105,6 +142,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
+   g_hWnd = hWnd;
+
    return TRUE;
 }
 
@@ -113,6 +152,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
+    case WM_CREATE:
+    {
+
+        SetTimer(hWnd, 1, 50, NULL);
+    }
+        break;
+    case WM_TIMER:
+        if (wParam == 1)
+        {
+
+            CObjectManager::Get_Instance()->Update(); // 포지션 업데이트
+        }
+
+        InvalidateRect(hWnd, NULL, TRUE);
+        break;
+
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
@@ -131,18 +186,30 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     case WM_PAINT:
         {
+            /* Double Buffering */
             PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps);
+            HDC hdc = BeginPaint(hWnd, &ps); // 도구를 쓰는 손
+            HDC hdc2 = CreateCompatibleDC(hdc); // 왼손
 
-            //Ellipse(hdc, 100, 100, 200, 200);
-            CObjectManager::Get_Instance()->Render(hdc);
+            HBITMAP Buffer = CreateBitmap(WINDOW_WIDTH,WINDOW_HEIGHT, 1, 32, NULL); // 도화지 버퍼 생성
+            
+            SelectObject(hdc2, Buffer); // hdc2로 buffer에 그림 (렌더 함수에 반영)
+            ExtFloodFill(hdc2, 0, 0, RGB(0, 0, 0), FLOODFILLSURFACE);
 
+            CObjectManager::Get_Instance()->Render(hdc2);
 
+            BitBlt(hdc, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, hdc2, 0, 0, SRCCOPY);
+
+            DeleteObject(Buffer);
+            DeleteDC(hdc2);
+ 
             EndPaint(hWnd, &ps);
         }
         break;
     case WM_DESTROY:
         PostQuitMessage(0);
+        KillTimer(hWnd, 1);
+
         break;
     default:
         return DefWindowProc(hWnd, message, wParam, lParam);
@@ -167,4 +234,15 @@ INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     }
     return (INT_PTR)FALSE;
+}
+
+void Gdi_Init()
+{
+    GdiplusStartupInput gpsi;
+    GdiplusStartup(&g_GdiToken, &gpsi, NULL);
+}
+
+void Gdi_End()
+{
+    GdiplusShutdown(g_GdiToken);
 }

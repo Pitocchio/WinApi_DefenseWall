@@ -26,14 +26,20 @@ void CObjectManager::Destroy_Instance()
 
 void CObjectManager::Init()
 {
-	/*
-
-	플레이어와 브릭은 미리 이 타이밍에 생성
-
-	*/
-	Vector2 tempVec = { CPLAYER_START_POS_X, CPLAYER_START_POS_Y };
-	CPlayer* tempCPlayer = new CPlayer(tempVec, CPLAYER_RADIUS);
+	/* CPlayer 생성 */
+	Vector2 tempCPlayerVec = { CPLAYER_START_POS_X, CPLAYER_START_POS_Y };
+	CPlayer* tempCPlayer = new CPlayer(tempCPlayerVec, CPLAYER_RADIUS, CPLAYER_GUN_DISTANCE);
 	Add_CObject(OBJECT_TYPE::CPLAYER, tempCPlayer);
+
+
+	/* CWall 생성 */
+	Vector2 tempCWallVec = { CWALL_WIDTH * 0.5, WINDOW_HEIGHT - CWALL_HEIGHT };
+	for (int i = 0; i < CWALL_NUM; ++i)
+	{
+		CWall* tempCWall = new CWall(tempCWallVec);
+		Add_CObject(OBJECT_TYPE::CWALL, tempCWall);
+		tempCWallVec.x += CWALL_WIDTH;
+	}
 }
 
 void CObjectManager::Update()
@@ -86,11 +92,3 @@ void CObjectManager::Add_CObject(OBJECT_TYPE type, CObject* temp)
 
 	iter->second.push_back(temp);
 }
-
-/*
-
-	메인 시작 초기화때, 플레이어-브릭 생성 애드
-	
-	이후 총알과 화살표는 add 오브젝트로 생성
-
-*/

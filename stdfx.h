@@ -22,6 +22,7 @@ using namespace std;
 // Object
 #include "CObject.h"
 #include "CPlayer.h"
+#include "CWall.h"
 
 
 // Component

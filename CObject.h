@@ -22,29 +22,28 @@ public: // Life Cycle
 	virtual void LateUpdate() = 0;
 	virtual void Render(HDC hdc) = 0;
 
+public: // Set
+	void Plus_Angle(); 
+	void Minus_Angle();
+	virtual void Set_Lookvec();
+
 public: // Method
 	void Add_Component(Component::COMPONENT_TYPE type, Component* temp); 
 	COMPONENT_MAP Get_ComponentMap() const { return m_CpnMap; }
-	Vector2 Get_Transform() const { return dynamic_cast<Transform*>(m_CpnMap.begin()->second)->Get_VecPos(); }
-	/*
+	//Vector2 Get_Transform() const { return dynamic_cast<Transform*>(m_CpnMap.begin()->second)->Get_VecPos(); }
 	
-	m_CpnMap.begin() = 트랜스폼 키
-
-	m_CpnMap.begin()->second = 벡터2 밸류
-	
-	*/
 protected: // Variables
-	COMPONENT_MAP m_CpnMap; // 객체 각각이 갖고 있는 컴포넌트이다.
+	COMPONENT_MAP m_CpnMap; // 오브젝트 객체 자신이 컴포넌트 맵을 갖고 있음
 
 protected: // Variables
 	float m_Angle;
-	Vector2 m_UnitVec;
+	Vector2 m_LookVec;
 	// 기본 포지션은 Transform Component가 들고 있음
 		    
 };
 
 
-
+// cf
 /*
 
 

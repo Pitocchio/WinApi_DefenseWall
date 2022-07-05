@@ -7,7 +7,7 @@ class CPlayer : public CObject
 public:
 	CPlayer();
 	~CPlayer();
-	CPlayer(Vector2 pos, float radius);
+	CPlayer(Vector2 pos, float radius, float gundistance);
 
 
 public:
@@ -16,9 +16,14 @@ public:
 	virtual void LateUpdate() override;
 	virtual void Render(HDC hdc) override;
 
+	virtual void Set_Lookvec() override;
+
+	
+
 public: // Get
 	float Get_Radius();
 
 private: // Variables
-	float m_Radius = 0;
+	float m_Radius;
+	float m_Distance;
 };

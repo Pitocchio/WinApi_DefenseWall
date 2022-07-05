@@ -5,7 +5,7 @@
 CObject::CObject()
 {
 	m_Angle = 0;
-	m_UnitVec = m_UnitVec.Normalize();
+	m_LookVec = m_LookVec.Normalize();
 }
 
 CObject::~CObject()
@@ -18,6 +18,28 @@ CObject::CObject(Vector2 pos)
 
 	Add_Component(Component::COMPONENT_TYPE::TRANSFORM, tempTransform);
 	// 생성과 동시에 컴포넌트-트랜스폼 추가
+}
+
+void CObject::Update()
+{
+
+}
+
+void CObject::Plus_Angle()
+{
+	if (m_Angle < 180)
+		m_Angle += 0.1f;
+}
+
+void CObject::Minus_Angle()
+{
+	if (m_Angle > 0) 
+		m_Angle -= 0.1f; 
+}
+
+void CObject::Set_Lookvec()
+{
+
 }
 
 void CObject::Add_Component(Component::COMPONENT_TYPE type, Component*temp)
