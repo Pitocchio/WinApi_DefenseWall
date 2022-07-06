@@ -1,0 +1,26 @@
+﻿  AABBColider2D.cpp
+  BoxCollider2D.cpp
+  CBullet.cpp
+  CEnemy.cpp
+  CircleCollider2D.cpp
+  CkeyManager.cpp
+  CObject.cpp
+  CObjectManager.cpp
+  Collider2D.cpp
+  CollisionManager.cpp
+  Component.cpp
+  Cplayer.cpp
+D:\WinApi_DefenseWall\Cplayer.cpp(73,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\WinApi_DefenseWall\Cplayer.cpp(73,22): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\WinApi_DefenseWall\Cplayer.cpp(77,10): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\WinApi_DefenseWall\Cplayer.cpp(76,21): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\WinApi_DefenseWall\Cplayer.cpp(98,21): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+D:\WinApi_DefenseWall\Cplayer.cpp(100,26): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CTimeManager.cpp
+  CWall.cpp
+  Transform.cpp
+  Main.cpp
+D:\WinApi_DefenseWall\Main.cpp(96,73): warning C4838: 'int'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
+D:\WinApi_DefenseWall\Main.cpp(96,73): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  WinApi_DefenseWall.vcxproj -> D:\WinApi_DefenseWall\x64\Debug\WinApi_DefenseWall.exe
