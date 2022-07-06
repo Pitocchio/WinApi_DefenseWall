@@ -1,3 +1,0 @@
-C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\WinApi_DefenseWall\Debug\WinApi_DefenseWall.exe
-D:\WinApi_DefenseWall\Debug\WinApi_DefenseWall.exe
-C:\Users\Admin\Downloads\WinApi_DefenseWall-main\Debug\WinApi_DefenseWall.exe

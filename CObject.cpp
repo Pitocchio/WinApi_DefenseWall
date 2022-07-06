@@ -4,8 +4,7 @@
 
 CObject::CObject()
 {
-	m_Angle = 0;
-	m_LookVec = m_LookVec.Normalize();
+	
 }
 
 CObject::~CObject()
@@ -14,28 +13,31 @@ CObject::~CObject()
 
 CObject::CObject(Vector2 pos)
 {
-	Transform* tempTransform = new Transform(pos); 
+	bIsCollision = false;
+	m_Angle = 90.0f;
 
+	Transform* tempTransform = new Transform(pos); 
 	Add_Component(Component::COMPONENT_TYPE::TRANSFORM, tempTransform);
-	// 생성과 동시에 컴포넌트-트랜스폼 추가
+
+	m_LookVec.Normalize();
 }
+
+CObject::CObject(Vector2 pos, Vector2 Lookvec)
+{
+	m_Angle = 90.0f;
+
+	Transform* tempTransform = new Transform(pos);
+	Add_Component(Component::COMPONENT_TYPE::TRANSFORM, tempTransform);
+
+	m_LookVec = Lookvec;
+}
+
 
 void CObject::Update()
 {
 
 }
 
-void CObject::Plus_Angle()
-{
-	if (m_Angle < 180)
-		m_Angle += 0.1f;
-}
-
-void CObject::Minus_Angle()
-{
-	if (m_Angle > 0) 
-		m_Angle -= 0.1f; 
-}
 
 void CObject::Set_Lookvec()
 {

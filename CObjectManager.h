@@ -21,6 +21,7 @@ public: // Life Cycle
 	void Init();
 	void Update(); // Collision check
 	void LateUpdate(); // Collision implement
+	void FixedUpdate();
 	void Render(HDC hdc);
 
 public: // Method

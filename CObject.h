@@ -6,7 +6,7 @@ class CObject
 {
 
 public: // Enum
-	enum class OBJECT_TYPE { CPLAYER, CBULLET, CWALL, CENEMY, OBJTYPEEND };
+	//enum class OBJECT_TYPE { CPLAYER, CBULLET, CWALL, CENEMY, OBJTYPEEND };
 
 protected: // Typedef
 	typedef map<Component::COMPONENT_TYPE, Component*> COMPONENT_MAP;
@@ -15,6 +15,8 @@ public:
 	CObject();
 	~CObject();
 	CObject(Vector2 pos);
+	CObject(Vector2 pos, Vector2 Lookvec);
+
 
 public: // Life Cycle
 	virtual void Init() = 0;
@@ -23,9 +25,9 @@ public: // Life Cycle
 	virtual void Render(HDC hdc) = 0;
 
 public: // Set
-	void Plus_Angle(); 
-	void Minus_Angle();
 	virtual void Set_Lookvec();
+	void Set_BoolIsCollision(bool b) { bIsCollision = b; }
+	bool Get_BoolIsCollision() { return bIsCollision; }
 
 public: // Method
 	void Add_Component(Component::COMPONENT_TYPE type, Component* temp); 
@@ -38,6 +40,7 @@ protected: // Variables
 protected: // Variables
 	float m_Angle;
 	Vector2 m_LookVec;
+	bool bIsCollision;
 	// 기본 포지션은 Transform Component가 들고 있음
 		    
 };

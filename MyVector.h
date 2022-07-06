@@ -5,16 +5,27 @@ typedef struct MyVector2
 {
 	float x, y;
 
+
+
+
 	MyVector2 operator+(MyVector2& vector2) { return MyVector2({ x + vector2.x, y + vector2.y }); }
 	MyVector2 operator-(MyVector2& vector2) { return MyVector2({ x - vector2.x, y - vector2.y }); }
 	MyVector2 operator*(MyVector2& vector2) { return MyVector2({ x * vector2.x, y * vector2.y }); }
 	MyVector2 operator/(MyVector2& vector2) { return MyVector2({ x / vector2.x, y / vector2.y }); }
 
+
+	MyVector2 operator*(float mul) { return MyVector2({ x * mul, y * mul }); }
+
+	void operator *= (float mul) { x *= mul; y *= mul; };
+	void operator += (float rbs) { x += rbs; y += rbs; };
+	//MyVector2 operator += (float rbs) { x += rbs; y += rbs; };
+
+
 	//void operator=(Vector2& vector2) { x = vector2.x; y = vector2.y; }
-	void operator+=(MyVector2& vector2) { x += vector2.x, y += vector2.y ; }
-	void operator-=(MyVector2& vector2) { x -= vector2.x, y -= vector2.y ; }
-	void operator*=(MyVector2& vector2) { x *= vector2.x, y *= vector2.y ; }
-	void operator/=(MyVector2& vector2) { x /= vector2.x, y /= vector2.y ; }
+	void operator += (MyVector2& vector2) { x += vector2.x, y += vector2.y ; }
+	void operator -= (MyVector2& vector2) { x -= vector2.x, y -= vector2.y ; }
+	void operator *= (MyVector2& vector2) { x *= vector2.x, y *= vector2.y ; }
+	void operator /= (MyVector2& vector2) { x /= vector2.x, y /= vector2.y ; }
 
 	
 	float Distance() 
@@ -27,7 +38,7 @@ typedef struct MyVector2
 
 	*/
 
-	MyVector2 Normalize()
+	MyVector2& Normalize()
 	{
 		float dis = float(sqrt(pow(this->x, 2) + pow(this->y, 2)));
 		this->x /= dis;

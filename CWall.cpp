@@ -13,7 +13,6 @@ CWall::CWall(Vector2 pos)
 	: CObject(pos)
 {
 	m_iStrength = 3;
-
 }
 
 void CWall::Init()

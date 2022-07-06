@@ -141,6 +141,8 @@
   <ItemGroup>
     <ClInclude Include="AABBColider2D.h" />
     <ClInclude Include="BoxCollider2D.h" />
+    <ClInclude Include="CBullet.h" />
+    <ClInclude Include="CEnemy.h" />
     <ClInclude Include="CkeyManager.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
     </ClInclude>
@@ -150,6 +152,7 @@
     <ClInclude Include="Collider2D.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="CPlayer.h" />
+    <ClInclude Include="CTimeManager.h" />
     <ClInclude Include="CWall.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="framework.h" />
@@ -168,6 +171,8 @@
   <ItemGroup>
     <ClCompile Include="AABBColider2D.cpp" />
     <ClCompile Include="BoxCollider2D.cpp" />
+    <ClCompile Include="CBullet.cpp" />
+    <ClCompile Include="CEnemy.cpp" />
     <ClCompile Include="CircleCollider2D.cpp" />
     <ClCompile Include="CkeyManager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -178,6 +183,7 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Cplayer.cpp" />
+    <ClCompile Include="CTimeManager.cpp" />
     <ClCompile Include="CWall.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Main.cpp" />

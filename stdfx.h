@@ -5,6 +5,7 @@
 #include "framework.h"
 
 using namespace std;
+#include <iostream>
 
 //================== User Define ====================//
 
@@ -23,6 +24,8 @@ using namespace std;
 #include "CObject.h"
 #include "CPlayer.h"
 #include "CWall.h"
+#include "CEnemy.h"
+#include "CBullet.h"
 
 
 // Component

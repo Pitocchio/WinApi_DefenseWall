@@ -16,9 +16,8 @@ public:
 	virtual void LateUpdate() override;
 	virtual void Render(HDC hdc) override;
 
+public:
 	virtual void Set_Lookvec() override;
-
-	
 
 public: // Get
 	float Get_Radius();

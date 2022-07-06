@@ -58,6 +58,9 @@
     <Filter Include="소스 파일\05.Manager\CKey">
       <UniqueIdentifier>{9bd2e077-cec6-4e8a-ac88-867f0e3ad6a4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\05.Manager\CTime">
+      <UniqueIdentifier>{541875d4-fdfd-43b1-8fc5-9c776f737f58}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -123,6 +126,15 @@
     <ClInclude Include="CWall.h">
       <Filter>소스 파일\04.Cobject</Filter>
     </ClInclude>
+    <ClInclude Include="CBullet.h">
+      <Filter>소스 파일\04.Cobject</Filter>
+    </ClInclude>
+    <ClInclude Include="CEnemy.h">
+      <Filter>소스 파일\04.Cobject</Filter>
+    </ClInclude>
+    <ClInclude Include="CTimeManager.h">
+      <Filter>소스 파일\05.Manager\CTime</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="WinApi_DefenseWall.rc">
@@ -176,6 +188,15 @@
     </ClCompile>
     <ClCompile Include="CWall.cpp">
       <Filter>소스 파일\04.Cobject</Filter>
+    </ClCompile>
+    <ClCompile Include="CBullet.cpp">
+      <Filter>소스 파일\04.Cobject</Filter>
+    </ClCompile>
+    <ClCompile Include="CEnemy.cpp">
+      <Filter>소스 파일\04.Cobject</Filter>
+    </ClCompile>
+    <ClCompile Include="CTimeManager.cpp">
+      <Filter>소스 파일\05.Manager\CTime</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

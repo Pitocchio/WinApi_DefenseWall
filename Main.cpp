@@ -13,6 +13,7 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
+
 /* GDI 관련 */
 #include <objidl.h>
 #include <gdiplus.h>
@@ -59,23 +60,17 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, /* 프로세스의 메모리 시
     {
         return FALSE;
     }
+
+    srand((unsigned)time(NULL));
+
     
     /* 무시 */
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINAPIDEFENSEWALL));
 
-
     MSG msg;
-    ///* 발생한 메시지(이벤트)가 있다면 가져온다, 즉 발생한 메시지가 없다면 무한 대기 */    
-    //while (GetMessage(&msg, nullptr, 0, 0))
-    //{
-    //    if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) /* 메시지가 발생한 윈도우(창), 무시. 메시지 구조체*/
-    //    {
-    //        TranslateMessage(&msg);
-    //        DispatchMessage(&msg);
-    //    }
-    //}
+ 
 
-    //return (int) msg.wParam;
+    clock_t time = clock();
 
     Gdi_Init();
     while (true) // 메시지 발생 유무에 관계없이 돌리겠다
@@ -93,9 +88,22 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, /* 프로세스의 메모리 시
             }
         }
         else
-        {
-            /* 더블 버퍼링 구현시 false로 세팅 */
+        {  
+            if (clock() - time > 980)
+            {
+                time = clock();
+                /* CEnemy 생성*/
+                Vector2 tempCEnemyVec = { rand() % (WINDOW_WIDTH - 160) + 160, CENEMY_START_POS_Y };
+                CEnemy* tempCEnemy = new CEnemy(tempCEnemyVec, CENEMY_RADIUS, CENEMY_DISTANCE);
+                CObjectManager::Get_Instance()->Add_CObject(OBJECT_TYPE::CENEMY, tempCEnemy);
+            }
+            CObjectManager::Get_Instance()->Update(); 
+            CObjectManager::Get_Instance()->LateUpdate(); 
+            CObjectManager::Get_Instance()->FixedUpdate();
+
+
             InvalidateRect(g_hWnd, nullptr, false);
+             
         }
     }
     Gdi_End();
@@ -152,21 +160,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
-    case WM_CREATE:
-    {
-
-        SetTimer(hWnd, 1, 50, NULL);
-    }
-        break;
-    case WM_TIMER:
-        if (wParam == 1)
-        {
-
-            CObjectManager::Get_Instance()->Update(); // 포지션 업데이트
-        }
-
-        InvalidateRect(hWnd, NULL, TRUE);
-        break;
 
     case WM_COMMAND:
         {
@@ -208,7 +201,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
         break;
     case WM_DESTROY:
         PostQuitMessage(0);
-        KillTimer(hWnd, 1);
 
         break;
     default:
@@ -241,7 +233,6 @@ void Gdi_Init()
     GdiplusStartupInput gpsi;
     GdiplusStartup(&g_GdiToken, &gpsi, NULL);
 }
-
 void Gdi_End()
 {
     GdiplusShutdown(g_GdiToken);

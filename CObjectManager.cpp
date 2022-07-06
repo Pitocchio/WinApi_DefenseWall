@@ -44,6 +44,12 @@ void CObjectManager::Init()
 
 void CObjectManager::Update()
 {
+	///* CEnemy »ý¼º*/
+	//Vector2 tempCEnemyVec = { rand() % (WINDOW_WIDTH - 80) + 80, CENEMY_START_POS_Y };
+	//CEnemy* tempCEnemy = new CEnemy(tempCEnemyVec, CENEMY_RADIUS, CENEMY_DISTANCE);
+	//Add_CObject(OBJECT_TYPE::CENEMY, tempCEnemy);
+
+	/* Update */
 	for (COBJ_MAP::iterator mapiter = m_ObjMap.begin(); mapiter != m_ObjMap.end(); ++mapiter)
 	{
 		for (COBJ_LIST::iterator iter = mapiter->second.begin(); iter != mapiter->second.end(); ++iter)
@@ -51,15 +57,27 @@ void CObjectManager::Update()
 			(*iter)->Update();
 		}
 	}
+
 }
 
 void CObjectManager::LateUpdate()
+{
+	CollisionMnager::Get_Instance()->Check_Collision(CollisionMnager::COLLISION_TYPE::CIRCLE2D, OBJECT_TYPE::CBULLET, OBJECT_TYPE::CENEMY);
+
+
+}
+
+void CObjectManager::FixedUpdate()
 {
 	for (COBJ_MAP::iterator mapiter = m_ObjMap.begin(); mapiter != m_ObjMap.end(); ++mapiter)
 	{
 		for (COBJ_LIST::iterator iter = mapiter->second.begin(); iter != mapiter->second.end(); ++iter)
 		{
-			(*iter)->LateUpdate();
+			if ((*iter)->Get_BoolIsCollision())
+			{
+ 				iter = mapiter->second.erase(iter);
+
+			}
 		}
 	}
 }
@@ -73,6 +91,7 @@ void CObjectManager::Render(HDC hdc)
 			(*iter)->Render(hdc);
 		}
 	}
+
 }
 
 void CObjectManager::Add_CObject(OBJECT_TYPE type, CObject* temp)
