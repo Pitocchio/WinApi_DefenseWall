@@ -12,7 +12,12 @@ public: // Method
 	virtual void Update() override;
 	virtual void LateUpdate() override;
 
-private: // Variables
+	Vector2 Return_MyVecPos();
+
+
+protected: // Variables
 	bool bIscollision;
+
+	CObject* m_Object;
 
 };

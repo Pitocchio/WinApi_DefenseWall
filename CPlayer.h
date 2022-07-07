@@ -22,7 +22,14 @@ public:
 public: // Get
 	float Get_Radius();
 
+
+
 private: // Variables
 	float m_Radius;
 	float m_Distance;
+
+	// Ctimemanager
+	//double delayTime = 0.3f;
+	double curTime = 0.0f;
+
 };

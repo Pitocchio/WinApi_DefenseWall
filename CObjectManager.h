@@ -31,4 +31,8 @@ public: // Method
 private: // Variables
 	static CObjectManager* m_ObjMgr;
 	COBJ_MAP m_ObjMap;
+
+	// Ctimemanager
+	double curTime = 0.0f;
+
 };

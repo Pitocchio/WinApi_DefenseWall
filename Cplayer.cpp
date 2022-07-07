@@ -24,11 +24,13 @@ void CPlayer::Init()
 
 void CPlayer::Update()
 {
+	curTime += CTimeManager::Get_Instance()->Get_Deltatime();
+
 	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
 	{
 		if (m_Angle < 180)
 		{
-			m_Angle += 3.0f;
+			m_Angle += CPLAYER_GUN_ANGLE * CTimeManager::Get_Instance()->Get_Deltatime();
 			Set_Lookvec();
 		}
 	}
@@ -36,24 +38,26 @@ void CPlayer::Update()
 	{
 		if (m_Angle > 0)
 		{
-			m_Angle -= 3.0f;
+			m_Angle -= CPLAYER_GUN_ANGLE * CTimeManager::Get_Instance()->Get_Deltatime();
 			Set_Lookvec();
 		}
 	}
 
-	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
+	curTime += CTimeManager::Get_Instance()->Get_Deltatime();
+	if (curTime >= CBULLET_CREATE_DELAYTIME)
 	{
-		// 총알 생성 & 발사
-		Vector2 tempPos = dynamic_cast<Transform*>(m_CpnMap.begin()->second)->Get_VecPos();
-		tempPos = (m_LookVec * 2 * m_Radius) + tempPos;
+		if (GetAsyncKeyState(VK_SPACE) & 0x8000)
+		{
+			// 총알 생성 & 발사
+			Vector2 tempPos = dynamic_cast<Transform*>(m_CpnMap.begin()->second)->Get_VecPos();
+			tempPos = (m_LookVec * 2 * m_Radius) + tempPos;
 
-		CBullet* tempCBullet = new CBullet(tempPos, m_LookVec, CBULLET_RADIUS, CBULLET_DISTANCE);
+			CBullet* tempCBullet = new CBullet(tempPos, m_LookVec, CBULLET_RADIUS, CBULLET_DISTANCE);
 
-		CObjectManager::Get_Instance()->Add_CObject(OBJECT_TYPE::CBULLET, tempCBullet);
-
-		//cout << "발사!\n";
+			CObjectManager::Get_Instance()->Add_CObject(OBJECT_TYPE::CBULLET, tempCBullet);
+		}
+		curTime = 0.0f; // 다시 시간 초기화
 	}
-
 }
 
 void CPlayer::LateUpdate()

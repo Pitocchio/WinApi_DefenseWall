@@ -89,21 +89,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, /* 프로세스의 메모리 시
         }
         else
         {  
-            if (clock() - time > 980)
-            {
-                time = clock();
-                /* CEnemy 생성*/
-                Vector2 tempCEnemyVec = { rand() % (WINDOW_WIDTH - 160) + 160, CENEMY_START_POS_Y };
-                CEnemy* tempCEnemy = new CEnemy(tempCEnemyVec, CENEMY_RADIUS, CENEMY_DISTANCE);
-                CObjectManager::Get_Instance()->Add_CObject(OBJECT_TYPE::CENEMY, tempCEnemy);
-            }
             CObjectManager::Get_Instance()->Update(); 
             CObjectManager::Get_Instance()->LateUpdate(); 
             CObjectManager::Get_Instance()->FixedUpdate();
 
-
-            InvalidateRect(g_hWnd, nullptr, false);
-             
+            InvalidateRect(g_hWnd, nullptr, false);             
         }
     }
     Gdi_End();

@@ -19,6 +19,7 @@ using namespace std;
 #include "CObjectManager.h"
 #include "CollisionManager.h"
 #include "CkeyManager.h"
+#include "CTimeManager.h"
 
 // Object
 #include "CObject.h"

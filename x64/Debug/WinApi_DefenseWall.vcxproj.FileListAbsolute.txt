@@ -1,1 +1,2 @@
 C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\x64\Debug\WinApi_DefenseWall.exe
+D:\WinApi_DefenseWall\x64\Debug\WinApi_DefenseWall.exe
