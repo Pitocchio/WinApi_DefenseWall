@@ -1,4 +1,32 @@
-﻿  CObjectManager.cpp
-D:\WinApi_DefenseWall\CObjectManager.cpp(55,48): warning C4838: 'int'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
-D:\WinApi_DefenseWall\CObjectManager.cpp(55,48): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  WinApi_DefenseWall.vcxproj -> D:\WinApi_DefenseWall\x64\Debug\WinApi_DefenseWall.exe
+﻿  AABBColider2D.cpp
+  BoxCollider2D.cpp
+  CBullet.cpp
+C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\CBullet.cpp(43,89): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\CBullet.cpp(44,89): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CEnemy.cpp
+C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\CEnemy.cpp(45,89): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\CEnemy.cpp(46,89): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CircleCollider2D.cpp
+  CkeyManager.cpp
+  CObject.cpp
+  CObjectManager.cpp
+C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\CObjectManager.cpp(55,48): warning C4838: 'int'에서 'float'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\CObjectManager.cpp(55,48): warning C4244: '초기화 중': 'int'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Collider2D.cpp
+  CollisionManager.cpp
+  Component.cpp
+  Cplayer.cpp
+C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\Cplayer.cpp(33,80): warning C4244: '+=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\Cplayer.cpp(41,80): warning C4244: '-=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\Cplayer.cpp(77,32): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\Cplayer.cpp(77,22): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\Cplayer.cpp(81,10): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\Cplayer.cpp(80,21): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\Cplayer.cpp(102,21): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\Cplayer.cpp(104,26): warning C4244: '인수': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  CTimeManager.cpp
+  CWall.cpp
+  Transform.cpp
+  Main.cpp
+  코드를 생성하고 있습니다...
+  WinApi_DefenseWall.vcxproj -> C:\Users\chanjun\Documents\INHA_WINAPI_DefenseWall\x64\Debug\WinApi_DefenseWall.exe
